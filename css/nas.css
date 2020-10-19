@@ -1,0 +1,40 @@
+.list-inline li {
+	vertical-align: top;
+}
+
+.nas-templates {
+	display: none;
+}
+.nas-card {
+	display: inline-block;
+}
+.nas-card-body {
+	position: relative;;
+	max-height: 200px;
+	overflow-y: auto; 
+	overflow-x: hidden;
+}
+
+.nas-photo {
+	position: relative;
+}
+
+.nas-photo .nas-photo-fullname {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 1em;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0 0 2px black;
+	border-radius: .3em;
+}
+
+.nas-list {
+	max-height: 80vh;
+	overflow-y: auto;
+}
+
+.nas-pref {
+	text-decoration: underline;
+}

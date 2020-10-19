@@ -1,0 +1,2 @@
+Create a generic parser covering all specs
+Create a writer for each spec

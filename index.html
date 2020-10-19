@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Nas - Yet Another Contacts App</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/perfect-scrollbar.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap-theme.min.css"> -->
+    <link rel="stylesheet" href="css/nas.css">
+</head>
+
+<body>
+    <section>
+        <!-- <h1 class="text-center">Nas <small>1.0.0</small></h1> -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nas-navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#nogo">NAS</a>
+                </div>
+                <div class="collapse navbar-collapse" id="nas-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a class="" href="#open">Open</a>
+                            <form name="file-form" class="hidden">
+                                <input type="file" name="file">
+                            </form>
+                        </li>
+                        <li class=""><a class="" href="#">Export</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Batch <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="disabled"><a href="#">Edit</a></li>
+                                <li class="disabled"><a href="#">Export</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Find Duplicates</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Exit</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <section class="container-fluid">
+        <div class="col-md-4"> <!-- Column 1 -->
+            <section class="panel panel-default"> <!-- Sidebar -->
+                <section class="panel-heading"> <!-- Search bar -->
+                    <div class="input-group">
+                        <input type="search" placeholder="Search" class="form-control">
+                        <span class="input-group-btn">
+					    	<button class="btn btn-default" type="button">
+					    		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                        </span>
+                    </div>
+                </section>
+                <section class="panel-body nas-list"> <!-- List -->
+                    <div class="list-group">
+                    </div>
+                </section> <!-- List -->
+            </section> <!-- Sidebar -->
+        </div> <!-- Column 1 -->
+        <div class="col-md-8"> <!-- Column 2 -->
+            <div class="panel panel-default">
+                <section class="panel-body"> <!-- Main View -->
+                    <ul class="list-inline">
+                        <li>
+                            <div class="nas-card panel panel-default">
+                                <div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> Photo</div>
+                                <div class="nas-card-body nas-photo">
+                                    <img class="nas-photo-img" height="200" src="img/photo.png" alt="photo">
+                                    <span class="nas-photo-fullname"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nas-card panel panel-default">
+                                <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> Name</div>
+                                <div class="nas-card-body nas-name">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Prefix</td>
+                                                <td class="nas-name-prefix"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>First</td>
+                                                <td class="nas-name-first"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Middle</td>
+                                                <td class="nas-name-middle"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Last</td>
+                                                <td class="nas-name-last"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Suffix</td>
+                                                <td class="nas-name-suffix"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nas-card panel panel-default">
+                                <div class="panel-heading"><span class="glyphicon glyphicon-briefcase"></span> Organization</div>
+                                <div class="nas-card-body nas-org">
+                                    <table class="table">
+                                        <tbody class="nas-org-list">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nas-card panel panel-default">
+                                <div class="panel-heading"><span class="glyphicon glyphicon-earphone"></span> Phone</div>
+                                <div class="nas-card-body nas-phone">
+                                    <table class="table">
+                                        <tbody class="nas-phone-list">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nas-card panel panel-default">
+                                <div class="panel-heading"><span class="glyphicon glyphicon-envelope"></span> Email</div>
+                                <div class="nas-card-body nas-email">
+                                    <table class="table">
+                                        <tbody class="nas-email-list">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nas-card panel panel-default">
+                                <div class="panel-heading"><span class="glyphicon glyphicon-send"></span> IM</div>
+                                <div class="nas-card-body nas-im">
+                                    <table class="table">
+                                        <tbody class="nas-im-list">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nas-card panel panel-default">
+                                <div class="panel-heading"><span class="glyphicon glyphicon-map-marker"></span> Address</div>
+                                <div class="nas-card-body nas-add">
+                                    <table class="table">
+                                        <tbody class="nas-add-list">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nas-card panel panel-default">
+                                <div class="panel-heading"><span class="glyphicon glyphicon-book"></span> Notes</div>
+                                <div class="nas-card-body nas-note panel-body">
+                                    <p class="nas-note-content"></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nas-card panel panel-default">
+                                <div class="panel-heading"><span class="glyphicon glyphicon-link"></span> Website</div>
+                                <div class="nas-card-body nas-url">
+                                    <table class="table">
+                                        <tbody class="nas-url-list">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nas-card panel panel-default">
+                                <div class="panel-heading"><span class="glyphicon glyphicon-globe"></span> Internet Call</div>
+                                <div class="nas-card-body nas-net panel-body">
+                                    <p class="nas-net-address"></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nas-card panel panel-default">
+                                <div class="panel-heading"><span class="glyphicon glyphicon-calendar"></span> Event</div>
+                                <div class="nas-card-body nas-event">
+                                    <table class="table">
+                                        <tbody class="nas-event-list">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- <li>
+							<div class="nas-card panel panel-default">
+								<div class="panel-heading"><span class="glyphicon glyphicon-folder-open"></span> Group</div>
+								<div class="nas-card-body nas-group">
+									<table class="table">
+										<tbody>
+											<tr>
+												<td class="nas-group-name">Family</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</li> -->
+                    </ul>
+                </section> <!-- Main View -->
+            </div>
+        </div> <!-- Column 2 -->
+    </section> <!-- Container -->
+    <script src="js/jquery-1.12.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/perfect-scrollbar.jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/quoted-printable.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/nas.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/vCardParser.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/vCard21Writer.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+    var templates = {
+        listItem: '\
+				<a href="#" class="list-group-item" data-vCardId="{vCardId}">\
+					<img class="img-circle" alt="photo" width="64" height="64" src="{dataUri}" >\
+					<span>{fullname}</span>\
+				</a>',
+        orgItem: '\
+        		<tr class="nas-org-list-item">\
+					<td>\
+						<strong><span class="nas-org-company">{org}</span><span class="nas-org-team"> - {team}</span></strong><br><span class="nas-org-title">{title}</span>\
+					</td>\
+				</tr>',
+        phoneItem: '\
+        			<tr class="nas-phone-list-item">\
+						<td class="nas-phone-type">{type}</td>\
+						<td class="nas-phone-number">{number}</td>\
+					</tr>',
+        emailItem: '\
+        			<tr class="nas-email-list-item">\
+						<td class="nas-email-type">{type}</td>\
+						<td class="nas-email-address">{address}</td>\
+					</tr>',
+        imItem: '\
+        			<tr class="nas-im-list-item">\
+						<td class="nas-im-service">{service}</td>\
+						<td class="nas-im-alias">{alias}</td>\
+					</tr>',
+        addressItem: '\
+        			<tr class="nas-add-list-item">\
+						<td class="nad-add-type">{type}</td>\
+						<td>\
+							<address>\
+							  <span class="nas-add-street">{street}</span>, <span class="nas-add-neighborhood">{neighborhood}</span><br>\
+							  <span class="nas-add-city">{city}</span>, <span class="nas-add-state">{state}</span> <span "nas-add-zipcode">{zipcode}</span><br>\
+							  <span class="nas-add-country">{country}</span>\
+							</address>\
+						</td>\
+					</tr>',
+        urlItem: '\
+        			<tr class="nas-url-list-item">\
+						<td class="nas-url-address">{url}</td>\
+					</tr>',
+        eventItem: '\
+        			<tr class="nas-event-list-item">\
+						<td class="nas-event-type">{type}</td>\
+						<td class="nas-event-date"><time datetime="{iso}">{formatted}</time></td>\
+					</tr>'
+    };
+
+    var getImgSrc = function(vCardPhoto) {
+        if (!vCardPhoto) {
+            return 'img/photo.png';
+        }
+        if (vCardPhoto.data) {
+        	return 'data:' + (
+                        vCardPhoto.mediatype.indexOf('/') >= 0 ?
+                        vCardPhoto.mediatype :
+                        'image/' + vCardPhoto.mediatype.toLowerCase()
+                    ) +
+                    ';' + vCardPhoto.enctype.toLowerCase() + ',' +
+                    vCardPhoto.data;
+        }
+        if (vCardPhoto.url) {
+        	return vCardPhoto.url;
+        }
+
+        return 'img/photo.png';
+    };
+
+    var utf8Decode = function(str) {
+        return decodeURIComponent(escape(str));
+    };
+
+    var utf8Encode = function(str) {
+        return unescape(encodeURIComponent(str));
+    };
+
+    var decode = function(str) {
+        return utf8Decode(quotedPrintable.decode(str));
+    };
+
+    var encode = function(str) {
+        return quotedPrintable.encode(utf8Encode(str));
+    };
+
+    var populateList = function(vCards) {
+      console.log(vCards);
+      return;
+        var $nasList = $('.nas-list');
+        var $listItem;
+        for (var i = 0; i < vCards.length; i++) {
+            $listItem = $(
+                templates.listItem
+                .replace('{vCardId}', i)
+                .replace('{fullname}', decode(vCards[i].fn.value))
+                .replace('{dataUri}', getImgSrc(vCards[i].photo.value))
+            );
+
+            $nasList.append($listItem);
+        }
+    };
+
+    var populateView = function(vCard) {
+        var i;
+        var arr;
+        var $nasPhoto = $('.nas-photo');
+        $nasPhoto.find('.nas-photo-img').attr('src', getImgSrc(vCard.photo));
+        $nasPhoto.find('.nas-photo-fullname').text(decode(vCard.fullname.name));
+
+        var $nasName = $('.nas-name');
+        $nasName.find('.nas-name-prefix').text(decode(vCard.name.prefix));
+        $nasName.find('.nas-name-first').text(decode(vCard.name.first));
+        $nasName.find('.nas-name-last').text(decode(vCard.name.last));
+        $nasName.find('.nas-name-middle').text(decode(vCard.name.middle));
+        $nasName.find('.nas-name-suffix').text(decode(vCard.name.suffix));
+
+        var $nasOrg = $('.nas-org');
+        $nasOrg.find('.nas-org-list').empty();
+        if (vCard.org) {
+            arr = Array.isArray(vCard.org) ? vCard.org : [vCard.org];
+            for (i = 0; i < arr.length; i++) {
+                var $orgItem = $(templates.orgItem
+                    .replace('{org}', decode(arr[i].org))
+                    .replace('{team}', decode(arr[i].team))
+                    .replace('{title}', decode(arr[i].title))
+                );
+                if (arr[i].team === '') {
+                    $orgItem.find('.nas-org-team').remove();
+                }
+                $nasOrg.find('.nas-org-list').append($orgItem);
+            }
+            $nasOrg.closest('li').removeClass('hidden');
+        } else {
+            $nasOrg.closest('li').addClass('hidden');
+        }
+
+        var $nasPhone = $('.nas-phone');
+        $nasPhone.find('.nas-phone-list').empty();
+        if (vCard.tel) {
+        	arr = Array.isArray(vCard.tel) ? vCard.tel : [vCard.tel];
+        	for (i = 0; i < arr.length; i++) {
+	            var $phoneItem = $(templates.phoneItem
+	                .replace('{type}', NAS._(arr[i].type))
+	                .replace('{number}', arr[i].number)
+	            );
+	            if (arr[i].preferred) {
+	                $phoneItem.find('.nas-phone-type').addClass('nas-pref');
+	            }
+	            $nasPhone.find('.nas-phone-list').append($phoneItem);
+	        }
+        	$nasPhone.closest('li').removeClass('hidden');
+        } else {
+        	$nasPhone.closest('li').addClass('hidden');
+        }
+
+        var $nasEmail = $('.nas-email');
+        $nasEmail.find('.nas-email-list').empty();
+        if (vCard.email) {
+        	arr = Array.isArray(vCard.email) ? vCard.email : [vCard.email];
+        	for (i = 0; i < arr.length; i++) {
+	            var $emailItem = $(templates.emailItem
+	                .replace('{type}', NAS._(arr[i].type))
+	                .replace('{address}', arr[i].address)
+	            );
+	            $nasEmail.find('.nas-email-list').append($emailItem);
+	        }
+        	$nasEmail.closest('li').removeClass('hidden');
+        } else {
+        	$nasEmail.closest('li').addClass('hidden');
+        }
+
+        var $nasIm = $('.nas-im');
+        $nasIm.find('.nas-im-list').empty();
+        if (vCard.im) {
+        	arr = Array.isArray(vCard.im) ? vCard.im : [vCard.im];
+            for (i = 0; i < arr.length; i++) {
+                var $imItem = $(templates.imItem
+                    .replace('{service}', NAS._(arr[i].service))
+                    .replace('{alias}', arr[i].alias)
+                );
+                $nasIm.find('.nas-im-list').append($imItem);
+            }
+            $nasIm.closest('li').removeClass('hidden');
+        } else {
+            $nasIm.closest('li').addClass('hidden');
+        }
+
+        var $nasAddress = $('.nas-add');
+        $nasAddress.find('.nas-add-list').empty();
+        if (vCard.address) {
+        	arr = Array.isArray(vCard.address) ? vCard.address : [vCard.address];
+        	for (i = 0; i < arr.length; i++) {
+	            var $addressItem = $(templates.addressItem
+	                .replace('{type}', NAS._(arr[i].type))
+	                .replace('{street}', decode(arr[i].street))
+	                .replace('{neighborhood}', decode(arr[i].neighborhood))
+	                .replace('{city}', decode(arr[i].city))
+	                .replace('{zipcode}', decode(arr[i].zipcode))
+	                .replace('{state}', decode(arr[i].state))
+	                .replace('{country}', decode(arr[i].country))
+	                .replace('{pobox}', decode(arr[i].pobox))
+	            );
+	            $nasAddress.find('.nas-add-list').append($addressItem);
+	        }
+        	$nasAddress.closest('li').removeClass('hidden');
+        } else {
+        	$nasAddress.closest('li').addClass('hidden');
+        }
+
+        var $nasContent = $('.nas-note-content');
+        if (vCard.note) {
+        	$nasContent.html(decode(vCard.note.text).replace('\r', '').replace('\n', '<br>'));
+        	$nasContent.closest('li').removeClass('hidden');
+        } else {
+        	$nasContent.closest('li').addClass('hidden');
+        }
+
+        var $nasUrl = $('.nas-url');
+        $nasUrl.find('.nas-url-list').empty();
+        if (vCard.url) {
+        	arr = Array.isArray(vCard.url) ? vCard.url : [vCard.url];
+        	for (i = 0; i < arr.length; i++) {
+	            var $urlItem = $(templates.urlItem
+	                .replace('{url}', arr[i])
+	            );
+	            $nasUrl.find('.nas-url-list').append($urlItem);
+	        }
+        	$nasUrl.closest('li').removeClass('hidden');
+        } else {
+        	$nasUrl.closest('li').addClass('hidden');
+        }
+
+        var $nasNet = $('.nas-net-address');
+        if (vCard.net) {
+        	$nasNet.text(vCard.net);
+            $nasNet.closest('li').removeClass('hidden');
+        } else {
+            $nasNet.closest('li').addClass('hidden');
+        }
+
+        var $nasEvent = $('.nas-event');
+        $nasEvent.find('.nas-event-list').empty();
+        if (vCard.event) {
+        	arr = Array.isArray(vCard.event) ? vCard.event : [vCard.event];
+	        for (i = 0; i < arr.length; i++) {
+	            var $eventItem = $(templates.eventItem
+	                .replace('{type}', decode(arr[i].title))
+	                .replace('{iso}', arr[i].date)
+	                .replace('{formatted}', arr[i].date)
+	            );
+	            $nasEvent.find('.nas-event-list').append($eventItem);
+	        }
+            $nasEvent.closest('li').removeClass('hidden');
+        } else {
+            $nasEvent.closest('li').addClass('hidden');
+        }
+
+        $('.nas-card-body').scrollTop(0);
+    };
+
+    var $fileInput = $('input[name=file]');
+    var $btnOpen = $('a[href="#open"]');
+    var $nasList = $('.nas-list');
+
+    // action: open
+    $fileInput.change(function(ev) {
+        var files = ev.target.files;
+        if (ev.target.files.length === 0) {
+            return;
+        }
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var content = e.target.result;
+            content = content.replace(/\r/g, '');
+            content = content.replace(/\n[ \t]+/g, '');
+            content = content.replace(/\n\n/g, '\n');
+            // console.log(content);
+            try {
+            	NAS.vCards = vCardParser.parse(e.target.result.trim().replace(/\r?\n[ \t]+/g, '').replace(/\n\n/g, '\n'));
+            } catch(e) {
+            	console.log(e.location !== undefined
+		      ? "Line " + e.location.start.line + ", column " + e.location.start.column + ": " + e.message
+		      : e.message);
+            }
+            populateList(NAS.vCards);
+        };
+
+        reader.readAsText(ev.target.files[0]);
+    });
+
+    $btnOpen.click(function(ev) {
+        ev.preventDefault();
+        $fileInput.trigger('click');
+    });
+
+    // action: contact-click
+    $nasList.on('click', '.list-group-item', function(ev) {
+        ev.preventDefault();
+        populateView(NAS.vCards[$(this).data('vcardid')]);
+    });
+
+    // perfectScrollbar
+    $('.nas-card-body').perfectScrollbar();
+    </script>
+</body>
+
+</html>
